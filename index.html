@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>We’re now AreaConnector</title>
+  <meta name="description" content="AreaConnect has rebranded to AreaConnector. Our new home is area-connector.com." />
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://area-connector.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #10b981; --brand-600: #059669; --brand-50: #ecfdf5;
+      --ink: #0f172a; --muted: #64748b; --line: rgba(15,23,42,.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: Inter, system-ui, -apple-system, sans-serif; color: var(--ink);
+      background: linear-gradient(135deg, #ecfdf5 0%, #f3faf7 50%, #eef2ff 100%);
+      -webkit-font-smoothing: antialiased;
+      display: flex; align-items: center; justify-content: center; padding: 24px 16px; min-height: 100%;
+      position: relative; overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(to right, var(--line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+      background-size: 44px 44px;
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+              mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+    }
+    .glow { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+    .glow.a { width: 480px; height: 360px; top: -140px; right: -80px; background: rgba(16,185,129,.22); }
+    .glow.b { width: 420px; height: 320px; bottom: -160px; left: -100px; background: rgba(99,102,241,.16); }
+
+    .card {
+      position: relative; width: 100%; max-width: 560px; text-align: center;
+      background: rgba(255,255,255,.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.9); border-radius: 32px;
+      box-shadow: 0 30px 60px -20px rgba(6,78,59,.18);
+      padding: 40px 32px 32px;
+      animation: rise .7s cubic-bezier(.22,1,.36,1) both;
+    }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: none; } }
+
+    .logo {
+      width: 60px; height: 60px; margin: 0 auto; border-radius: 18px; background: var(--brand);
+      display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px -8px rgba(16,185,129,.6);
+    }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 22px;
+      padding: 5px 12px; border-radius: 999px; background: var(--brand-50); color: var(--brand-600);
+      font-size: 12px; font-weight: 600;
+    }
+    .pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand); animation: pulse 1.6s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: .35; } }
+
+    h1 { margin-top: 16px; font-size: clamp(26px, 6vw, 34px); line-height: 1.15; font-weight: 800; letter-spacing: -.02em; }
+    h1 span { background: linear-gradient(90deg, #10b981, #34d399, #14b8a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { margin-top: 12px; font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+    .swap {
+      margin: 26px auto 0; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+    }
+    .domain { padding: 10px 14px; border-radius: 14px; font-size: 14px; font-weight: 600; }
+    .domain.old { background: #f1f5f9; color: #94a3b8; text-decoration: line-through; }
+    .domain.new { background: var(--brand-50); color: var(--brand-600); border: 1px solid #a7f3d0; }
+    .arrow { color: var(--brand); display: flex; }
+
+    .btn {
+      margin-top: 28px; display: inline-flex; align-items: center; gap: 10px;
+      background: var(--ink); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px;
+      padding: 12px 12px 12px 22px; border-radius: 999px; transition: transform .2s, background .2s;
+    }
+    .btn:hover { background: #1e293b; transform: translateY(-1px); }
+    .btn .ic { width: 30px; height: 30px; border-radius: 50%; background: var(--brand); display: flex; align-items: center; justify-content: center; }
+
+    .count { margin-top: 16px; font-size: 13px; color: var(--muted); }
+    .count b { color: var(--ink); }
+    .count button { background: none; border: 0; color: var(--brand-600); font: inherit; font-weight: 600; cursor: pointer; text-decoration: underline; }
+    .bar { margin: 10px auto 0; width: 160px; height: 4px; border-radius: 999px; background: #e2e8f0; overflow: hidden; }
+    .bar i { display: block; height: 100%; width: 100%; background: var(--brand); transform-origin: left; }
+
+    .note {
+      margin-top: 26px; padding-top: 20px; border-top: 1px solid #f1f5f9;
+      font-size: 12.5px; line-height: 1.6; color: var(--muted);
+    }
+    .note a { color: var(--brand-600); font-weight: 600; text-decoration: none; }
+
+    @media (max-width: 480px) { .card { padding: 32px 20px 24px; border-radius: 26px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="glow a"></div>
+  <div class="glow b"></div>
+
+  <main class="card">
+    <div class="logo">
+      <svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M20 4L6 12v16l14 8 14-8V12L20 4z" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" fill="none" />
+        <path d="M20 9L9 15.5v13L20 35l11-6.5v-13L20 9z" fill="rgba(255,255,255,0.2)" />
+        <text x="20" y="25" text-anchor="middle" fill="white" font-size="11" font-weight="800" font-family="system-ui,sans-serif">AC</text>
+      </svg>
+    </div>
+
+    <div class="pill"><span class="dot"></span> We’ve moved</div>
+
+    <h1>AreaConnect is now <span>AreaConnector</span></h1>
+    <p class="lead">
+      To serve you better, we’ve rebranded to AreaConnector and moved to a new home at
+      <strong>area-connector.com</strong>. Your account, estate and data are all exactly where you left them.
+      Just sign in on the new address.
+    </p>
+
+    <div class="swap">
+      <span class="domain old" id="old-host">areaconnect.pro</span>
+      <span class="arrow" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+      <span class="domain new" id="new-host">area-connector.com</span>
+    </div>
+
+    <a class="btn" id="go" href="https://area-connector.com/">
+      Continue to AreaConnector
+      <span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <div class="count" id="count">Taking you there in <b id="secs">10</b>s · <button type="button" id="stay">Stay here</button></div>
+    <div class="bar" id="bar"><i id="fill"></i></div>
+
+    <p class="note">
+      Please update your bookmarks and saved links. Questions? Email
+      <a href="mailto:support@area-connector.com">support@area-connector.com</a>
+    </p>
+  </main>
+
+  <script>
+    (function () {
+      var NEW_ROOT = 'area-connector.com';
+      // Old subdomain → new subdomain. Matched by keyword so variants (e.g. areamanager / manager) both work.
+      var MAP = [
+        [/admin/,             'admin.'],
+        [/manager|estate/,    'manager.'],
+        [/mates|resident/,    'areamates.'],
+        [/guard|security/,    'areaguards.'],
+      ];
+
+      var host = location.hostname.toLowerCase();
+      var sub = host.replace(/^www\./, '').split('.').length > 2 ? host.split('.')[0] : '';
+      var prefix = '';
+      for (var i = 0; i < MAP.length; i++) if (MAP[i][0].test(sub)) { prefix = MAP[i][1]; break; }
+
+      var target = 'https://' + prefix + NEW_ROOT + location.pathname + location.search + location.hash;
+      var go = document.getElementById('go');
+      go.href = target;
+      if (host && host !== 'localhost' && !/^\d/.test(host) && host.indexOf('.') > -1) document.getElementById('old-host').textContent = host;
+      document.getElementById('new-host').textContent = prefix + NEW_ROOT;
+
+      var total = 10, left = total, stopped = false;
+      var secs = document.getElementById('secs'), fill = document.getElementById('fill');
+      fill.style.transition = 'transform ' + total + 's linear';
+      requestAnimationFrame(function () { requestAnimationFrame(function () { fill.style.transform = 'scaleX(0)'; }); });
+
+      var t = setInterval(function () {
+        if (stopped) return;
+        left -= 1; secs.textContent = left;
+        if (left <= 0) { clearInterval(t); location.replace(target); }
+      }, 1000);
+
+      document.getElementById('stay').addEventListener('click', function () {
+        stopped = true; clearInterval(t);
+        document.getElementById('count').textContent = 'Redirect paused. Use the button above whenever you’re ready.';
+        document.getElementById('bar').style.display = 'none';
+      });
+    })();
+  </script>
+</body>
+</html>
